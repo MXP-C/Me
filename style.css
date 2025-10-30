@@ -134,6 +134,7 @@ a {
 }
 
 .skills-section h2,
+.certificates-section h2,
 .projects-section h2,
 .github-repos-section h2,
 .contact-section h2 {
@@ -145,7 +146,8 @@ a {
     margin-bottom: 2rem; /* Space between button and grid */
 }
 
-.skills-grid {
+.skills-grid,
+.certificates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -153,7 +155,8 @@ a {
     width: 100%;
 }
 
-.skill-card {
+.skill-card,
+.certificate-card {
     background-color: var(--primary-bg);
     padding: 2rem;
     border-radius: var(--border-radius);
@@ -166,7 +169,8 @@ a {
     text-align: center;
 }
 
-.skill-card:hover {
+.skill-card:hover,
+.certificate-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px var(--shadow-dark); /* Darker shadow on hover */
 }
@@ -176,18 +180,24 @@ a {
     margin-bottom: 1rem;
 }
 
-.skill-card h3 {
+.skill-card h3,
+.certificate-card h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
-.skill-card p {
+.skill-card p,
+.certificate-card p {
     font-size: 1rem;
     color: var(--text-color);
 }
 
-.projects-section {
+.certificates-section {
     background-color: var(--primary-bg);
+}
+
+.projects-section {
+    background-color: var(--secondary-bg); /* Alternating background */
 }
 
 .projects-grid,
@@ -243,11 +253,11 @@ a {
 }
 
 .github-repos-section {
-    background-color: var(--secondary-bg);
+    background-color: var(--primary-bg); /* Alternating background */
 }
 
 .contact-section {
-    background-color: var(--primary-bg);
+    background-color: var(--secondary-bg); /* Alternating background */
 }
 
 .contact-section h2 {
@@ -385,6 +395,7 @@ a {
     }
 
     .skills-grid,
+    .certificates-grid,
     .projects-grid,
     .repos-grid {
         grid-template-columns: 1fr;
