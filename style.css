@@ -1,0 +1,407 @@
+/* General Styles */
+:root {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f4f4f4;
+    --text-color: #000000;
+    --medium-gray: #cccccc;
+    --shadow-light: rgba(0, 0, 0, 0.15);
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+    --border-radius: 8px;
+    --transition-speed: 0.3s ease;
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-bg: #1a1a1a;
+        --secondary-bg: #2a2a2a;
+        --text-color: #ffffff;
+        --medium-gray: #666666;
+        --shadow-light: rgba(255, 255, 255, 0.08);
+        --shadow-dark: rgba(255, 255, 255, 0.15);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: var(--primary-bg);
+    box-shadow: 0 2px 10px var(--shadow-light);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.navbar .nav-link:first-child { /* Kauê's name */
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li {
+    margin-left: 2rem;
+}
+
+.nav-list .nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem; /* Add padding to make them feel like cards */
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed);
+}
+
+.nav-list .nav-link:hover {
+    background-color: var(--secondary-bg); /* Light background on hover */
+    transform: translateY(-3px); /* Slight lift */
+    box-shadow: 0 4px 10px var(--shadow-light); /* Subtle shadow */
+}
+
+/* Remove the underline animation as it conflicts with the card-like hover */
+.nav-list .nav-link::after {
+    display: none;
+}
+
+/* Sections */
+.section {
+    padding: 8rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0; /* Initial hidden state for fade-in */
+    transform: translateY(20px); /* Initial position for slide-up effect */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.intro-section {
+    background-color: var(--primary-bg);
+}
+
+.intro-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.intro-section p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.skills-section {
+    background-color: var(--secondary-bg);
+}
+
+.skills-section h2,
+.projects-section h2,
+.github-repos-section h2,
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem; /* Reduced margin for compactness */
+}
+
+.github-repos-section #toggle-repos {
+    margin-bottom: 2rem; /* Space between button and grid */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.skill-card {
+    background-color: var(--primary-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-dark); /* Darker shadow on hover */
+}
+
+.skill-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-card p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.projects-section {
+    background-color: var(--primary-bg);
+}
+
+.projects-grid,
+.repos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    transition: max-height 0.7s ease-out, opacity 0.7s ease-out; /* Smooth transition for collapse */
+    max-height: 1000px; /* Default max height when expanded, adjust as needed */
+    overflow: hidden;
+    opacity: 1;
+}
+
+.repos-grid.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0; /* Remove margin when collapsed */
+}
+
+.project-card,
+.repo-card {
+    background-color: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.project-card:hover,
+.repo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-dark); /* Darker shadow on hover */
+}
+
+.project-card h3,
+.repo-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.project-card p,
+.repo-card p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.github-repos-section {
+    background-color: var(--secondary-bg);
+}
+
+.contact-section {
+    background-color: var(--primary-bg);
+}
+
+.contact-section h2 {
+    margin-bottom: 2rem;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 0; /* Gap will be handled by button-wrapper margin */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Button Wrapper for layered effect */
+.button-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 0 0.75rem; /* Spacing between buttons */
+}
+
+.button-back-box {
+    position: absolute;
+    top: 5px; /* Offset for depth */
+    left: 5px; /* Offset for depth */
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-color); /* Black box behind */
+    border-radius: var(--border-radius);
+    z-index: 1; /* Behind the actual button */
+    transition: transform var(--transition-speed); /* For potential future animations */
+}
+
+/* Buttons (NG.CASH inspired, light theme) */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--text-color); /* Mini outline preta */
+    background-color: var(--primary-bg); /* Botão branco */
+    color: var(--text-color); /* Texto preto */
+    position: relative; /* Important for z-index within wrapper */
+    z-index: 2; /* Ensure button is above the back box */
+    transition: transform var(--transition-speed);
+    transform: translate(-5px, -5px); /* Default "inactive" (lifted) position */
+}
+
+.button-wrapper:hover .btn {
+    transform: translate(-8px, -8px); /* Lift button even further on hover */
+}
+
+.button-wrapper.button-active-state .btn {
+    transform: translate(5px, 5px); /* "Active" (pressed) position */
+}
+
+.button-wrapper:active .btn {
+    transform: translate(5px, 5px); /* "Encostar" na box */
+}
+
+/* Ensure project-card buttons are centered */
+.project-card .button-wrapper {
+    margin-top: auto; /* Push button to bottom */
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-bg);
+    color: var(--medium-gray);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 10px var(--shadow-light);
+}
+
+/* Responsive Design */
+.linux-mascot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    z-index: 999;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.linux-mascot .eye-pupil {
+    transform-origin: center center;
+    transition: transform 0.1s linear; /* Smooth eye movement */
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .linux-mascot {
+        width: 70px;
+        height: 70px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .nav-list {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-list li {
+        margin: 0.5rem 1rem;
+    }
+
+    .intro-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro-section p {
+        font-size: 1rem;
+    }
+
+    .skills-section h2,
+    .projects-section h2,
+    .github-repos-section h2,
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 6rem 1rem;
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .repos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn {
+        width: 80%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+* {
+    user-select: none;
+}

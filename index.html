@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kauê - Portfólio Pessoal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#home" class="nav-link">Kauê</a>
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#github-repos" class="nav-link">GitHub</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="section intro-section">
+            <h1>Oi, eu sou o Kauê 👋</h1>
+            <p>Estudante e programador Python focado em automação e desenvolvimento de ferramentas úteis.</p>
+            <div class="button-wrapper">
+                <div class="button-back-box"></div>
+                <a href="#skills" class="btn scroll-btn">Habilidades</a>
+            </div>
+        </section>
+
+        <section id="skills" class="section skills-section">
+            <h2>Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <span class="icon">🐍</span>
+                    <h3>Python</h3>
+                    <p>Automação, Otimização, Back-end</p>
+                </div>
+                <div class="skill-card">
+                    <span class="icon">💻</span>
+                    <h3>JavaScript</h3>
+                    <p>Web, Vite</p>
+                </div>
+                <div class="skill-card">
+                    <span class="icon">⚙️</span>
+                    <h3>Supabase & APIs</h3>
+                    <p>Integração e Desenvolvimento</p>
+                </div>
+                <div class="skill-card">
+                    <span class="icon">🎮</span>
+                    <h3>Game Dev</h3>
+                    <p>Curso de 2 anos</p>
+                </div>
+                <div class="skill-card">
+                    <span class="icon">🧠</span>
+                    <h3>Inglês avançado</h3>
+                    <p>Comunicação e Documentação</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects-section">
+            <h2>Principais projetos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>PDFinder</h3>
+                    <p>Achar PDFs gratuitos de forma fácil</p>
+                    <div class="button-wrapper">
+                        <div class="button-back-box"></div>
+                        <a href="https://mxp-c.github.io/PDFinder/" class="btn project-btn">Ver projeto</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Nova Notes</h3>
+                    <p>Aplicativo de anotações para PC</p>
+                    <div class="button-wrapper">
+                        <div class="button-back-box"></div>
+                        <a href="https://mxp-c.github.io/NovaNotes/" class="btn project-btn">Ver projeto</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Clarity</h3>
+                    <p>Plataforma inspirada no ClickUp com Supabase</p>
+                    <div class="button-wrapper">
+                        <div class="button-back-box"></div>
+                        <a href="https://github.com/MXP-C/Clarity" class="btn project-btn">Ver projeto</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="github-repos" class="section github-repos-section">
+            <h2>Meus Repositórios no GitHub</h2>
+            <button id="toggle-repos" class="btn scroll-btn">Mostrar Menos</button>
+            <div class="repos-grid">
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <h2>Quer trocar uma ideia ou colaborar?</h2>
+            <div class="contact-buttons">
+                <div class="button-wrapper">
+                    <div class="button-back-box"></div>
+                    <a href="https://github.com/MXP-C" class="btn contact-btn">GitHub</a>
+                </div>
+                <div class="button-wrapper">
+                    <div class="button-back-box"></div>
+                    <a href="mxlsc@proton.me" class="btn contact-btn">Email</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© Kauê — 2025</p>
+    </footer>
+
+    <div class="linux-mascot">
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Body -->
+            <path d="M50 95C70 95 85 80 85 60C85 40 70 25 50 25C30 25 15 40 15 60C15 80 30 95 50 95Z" fill="#000000"/>
+            <!-- White Belly -->
+            <path d="M50 90C65 90 75 75 75 60C75 45 65 35 50 35C35 35 25 45 25 60C25 75 35 90 50 90Z" fill="#FFFFFF"/>
+            <!-- Left Eye -->
+            <circle cx="40" cy="50" r="7" fill="#FFFFFF"/>
+            <circle class="eye-pupil" cx="40" cy="50" r="3" fill="#000000"/>
+            <!-- Right Eye -->
+            <circle cx="60" cy="50" r="7" fill="#FFFFFF"/>
+            <circle class="eye-pupil" cx="60" cy="50" r="3" fill="#000000"/>
+            <!-- Beak -->
+            <path d="M50 65L45 75L55 75L50 65Z" fill="#FFA500"/>
+        </svg>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
